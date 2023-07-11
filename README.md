@@ -23,6 +23,7 @@ For Linux from here:
 
 
 Now After Downloading Run The App
+
 [![](https://github.com/bhappyz/binance_profit_analyzer/blob/main/App_Screenshot.png?raw=true)](https://github.com/bhappyz/binance_profit_analyzer/blob/main/App_Screenshot.png?raw=true)
 
 1. ##### Enter Your API Data Key/Secret
