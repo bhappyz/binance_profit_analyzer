@@ -111,9 +111,9 @@ class BinanceProfitChart:
             table_data.append(
                 {
                     'Symbol': symbol,
-                    'Profit/Loss': f"${self.profits[symbol]:.2f}",
-                    'Number of trades': "{}".format(self.number_of_trades[symbol]),
-                    'Percentage Profitable': profitable_percentage,
+                    'Profit/Loss $': float(f"{self.profits[symbol]:.2f}"),
+                    'Number of trades': self.number_of_trades.get(symbol, 0),
+                    'Percentage Profitable %': profitable_percentage,
                 }
             )
 
@@ -122,7 +122,7 @@ class BinanceProfitChart:
 
         # Create the bar chart for the table
         bar_fig = go.Figure(data=[
-            go.Bar(x=df['Symbol'], y=df['Profit/Loss'], name='Profit/Loss'),
+            go.Bar(x=df['Symbol'], y=df['Profit/Loss'], name='Profit/Loss $'),
             go.Bar(x=df['Symbol'], y=df['Number of trades'], name='Number of trades')
         ])
         bar_fig.update_layout(
