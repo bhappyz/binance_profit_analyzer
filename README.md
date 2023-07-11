@@ -1,6 +1,8 @@
 # binance_profit_analyzer
 This is a script that can give you bar chart and table of your trading performance for the last X days
 
+[![](https://github.com/bhappyz/binance_profit_analyzer/blob/main/Analyses_screenshot.png?raw=true)](https://github.com/bhappyz/binance_profit_analyzer/blob/main/Analyses_screenshot.png?raw=true)
+
 # How to use:
 
 First you need to create an API from Binance account to know how to do that you can follow the guide on Binance website 
