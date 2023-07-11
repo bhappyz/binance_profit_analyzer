@@ -23,7 +23,7 @@ class BinanceProfitChart:
 
         self.client = Client(api_key, api_secret)
         self.pairs = self.client.get_all_tickers()
-        self.usdt_pairs = [pair for pair in self.pairs if pair['symbol'].endswith('USDT')]
+        self.usdt_pairs = [pair for pair in self.pairs if pair['symbol'].endswith('USDT')][:10]
         self.lookback_days = lookback_days
         self.use_percentage = False
         self.trades = {}
