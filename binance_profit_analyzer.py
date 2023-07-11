@@ -29,6 +29,7 @@ class BinanceProfitChart:
         self.trades = {}
         self.profits = {}
         self.success_rates = {}
+        self.number_of_trades = {}
         self.oldest_trade_date = datetime.now()
         self.earliest_trade_date = datetime.now()
 
@@ -85,6 +86,9 @@ class BinanceProfitChart:
                         else:
                             self.profits[symbol] -= investment - selling_quote_value
                     total_count += 1
+                    # set default value to 0 if symbol is not in the dictionary
+                    self.number_of_trades.setdefault(symbol, 0)
+                    self.number_of_trades[symbol] += 1
 
             if total_count > 0:
                 self.success_rates[symbol] = success_count / total_count
@@ -108,7 +112,7 @@ class BinanceProfitChart:
                 {
                     'Symbol': symbol,
                     'Profit/Loss': f"${self.profits[symbol]:.2f}",
-                    'Success Rate': f"{success_rate:.2f}%",
+                    'Number of trades': "{}".format(self.number_of_trades[symbol]),
                     'Percentage Profitable': profitable_percentage,
                 }
             )
@@ -119,10 +123,10 @@ class BinanceProfitChart:
         # Create the bar chart for the table
         bar_fig = go.Figure(data=[
             go.Bar(x=df['Symbol'], y=df['Profit/Loss'], name='Profit/Loss'),
-            go.Bar(x=df['Symbol'], y=df['Success Rate'], name='Success Rate')
+            go.Bar(x=df['Symbol'], y=df['Number of trades'], name='Number of trades')
         ])
         bar_fig.update_layout(
-            title='Profit/Loss and Success Rate for All Symbols',
+            title='Profit/Loss and Number of trades for All Symbols',
             xaxis_title='Symbol',
             yaxis_title='Value',
             barmode='group'
