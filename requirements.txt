@@ -1,0 +1,6 @@
+dash==2.11.1
+Flask==2.2.5
+plotly==5.3.1
+PySimpleGUI==4.59.0
+python-binance==1.0.17
+pandas==2.0.3
